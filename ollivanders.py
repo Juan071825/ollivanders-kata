@@ -2,6 +2,9 @@ class Ollivanders():
 
     def __init__(self,items):
         self.items = items
+        
+    def add_item(self, item):
+        self.items.append(item)
 
     def update_inventory(self):
         for item in self.items:
@@ -9,6 +12,7 @@ class Ollivanders():
 
     def get_inventory(self):
         return self.items
+    
 
 
 class Item:
