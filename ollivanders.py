@@ -102,27 +102,3 @@ class Backstage(NormalItem):
             self.quality = 0
         self.setSell_in
 
-
-        
-
-
-
-
-
-if __name__ == '__main__':
-
-    #def test_Ollivanders_get_items():
-    #    inventory = Ollivanders(['anillo', 'mazo', 'copa'])
-    #    assert inventory.get_inventory() == ['anillo', 'mazo', 'copa']
-    #    assert inventory.get_inventory() != ['anillo', 'maza', 'copa']        
-    #    print("Ollivanders().get_items funciona")
-
-    #test_Ollivanders_get_items()
-
-
-    def test_NormalItem_update_quality():
-        normal_item = NormalItem('Elixir of the Mongoose', 5, 7)
-        assert normal_item.update_quality() == ['Elixir of the Mongoose', 4, 6]
-        print('NormalItem().update_quality() funciona')
-
-    test_NormalItem_update_quality()
