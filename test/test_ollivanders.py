@@ -1,12 +1,65 @@
 
 import pytest
 from ollivanders import (
+    Ollivanders,
     NormalItem,
     ConjuredItem,
     AgedBrie,
     Sulfuras,
     Backstage
 )
+
+# -----------------------
+# OLLIVANDERS
+# -----------------------
+
+def test_inventory_initializes_empty_when_no_items():
+    inventory = Ollivanders()
+    assert inventory.get_inventory() == []
+
+
+def test_inventory_initializes_with_items():
+    item = NormalItem("Normal", 10, 20)
+    inventory = Ollivanders([item])
+    assert len(inventory.get_inventory()) == 1
+
+
+def test_add_item_adds_to_inventory():
+    inventory = Ollivanders()
+    item = NormalItem("Normal", 10, 20)
+
+    inventory.add_item(item)
+
+    assert len(inventory.get_inventory()) == 1
+    assert inventory.get_inventory()[0] == item
+
+
+def test_add_item_raises_error_if_not_item():
+    inventory = Ollivanders()
+
+    with pytest.raises(TypeError):
+        inventory.add_item("Not an item")
+
+
+def test_update_inventory_updates_all_items():
+    item1 = NormalItem("Normal", 10, 20)
+    item2 = AgedBrie("Aged Brie", 5, 30)
+
+    inventory = Ollivanders([item1, item2])
+
+    inventory.update_inventory()
+
+    assert item1.sell_in == 9
+    assert item1.quality == 19
+
+    assert item2.sell_in == 4
+    assert item2.quality == 31
+
+
+def test_update_inventory_empty_does_not_fail():
+    inventory = Ollivanders()
+    inventory.update_inventory()
+    assert inventory.get_inventory() == []
 
 # -----------------------
 # NORMAL ITEM
