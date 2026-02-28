@@ -83,6 +83,7 @@ class Sulfuras(NormalItem):
 
 
 
+
 class Backstage(NormalItem):
     def __init__(self, name, sell_in, quality):
         super().__init__(name, sell_in, quality)
