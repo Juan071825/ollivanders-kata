@@ -1,6 +1,6 @@
 
 import pytest
-from ollivanders import (
+from src.ollivanders import (
     Ollivanders,
     NormalItem,
     ConjuredItem,
